@@ -16,8 +16,8 @@ export default class Guard extends Character{
 	this.elevator = elevator;
 	this.elevatorButtons = elevatorButtons;
 
-	this.targetFloor = 3;
-	this.patrolUp = true;
+	this.targetFloor = 2;
+	this.patrolUp = false;
 
 	this.task = this.goAndPressButton;
 
@@ -68,7 +68,10 @@ export default class Guard extends Character{
 	else if(this.x < floorButton.x-5) {
 	    this.moveRight();
 	} else {
-	   this.elevator.call(floor);
+	    if(this.elevator.currentFloor != floor) {
+		this.elevator.call(floor);
+	    }
+
 	   this.task = this.waitForElevator;
 	}
     }

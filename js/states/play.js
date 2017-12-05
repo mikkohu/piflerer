@@ -9,7 +9,7 @@ let bgMusic;
 let wallLayer;
 let elevatorPitFloorLayer;
 let scoreText;
-const moveSpeed = 150;
+const moveSpeed = 250;
 
 export default class Play extends Phaser.State {
     create() {
@@ -28,6 +28,7 @@ export default class Play extends Phaser.State {
 
 	wallLayer = map.createLayer('floorAndWalls');
 	wallLayer.resizeWorld();
+	
 
 	elevatorPitFloorLayer = map.createLayer('elevatorPitFloor');
 	
@@ -103,6 +104,7 @@ export default class Play extends Phaser.State {
 	    elevatorButtons: this.buttons}));
 
 
+
 	this.game.world.bringToTop(this.characters);
 	this.game.world.bringToTop(this.guards);
 	this.facingLeft = false;
@@ -113,7 +115,11 @@ export default class Play extends Phaser.State {
     }
 
     update() {
-	scoreText = "Score: "+this.player.lootAmount;
+	scoreText.text  = "Score: "+this.player.lootAmount;
+
+	
+	//this.game.debug.body(this.guards.hash[0]);
+	this.game.debug.body(this.player);
 	
 	this.game.physics.arcade.collide(this.player, wallLayer);
 	this.game.physics.arcade.collide(this.player, this.elevator);
@@ -177,7 +183,7 @@ export default class Play extends Phaser.State {
 	}
 
 	if (this.cursors.left.isDown && this.player.visible) {
-	    this.player.body.velocity.x = (moveSpeed-this.player.lootAmount)*-1;
+	    this.player.body.velocity.x = (moveSpeed-this.player.lootAmount/2)*-1;
 	    if (!this.facingLeft) {
 		this.player.scale.x *= -1;
 		this.facingLeft = true;
@@ -199,6 +205,10 @@ export default class Play extends Phaser.State {
 	else {
 	    this.player.animations.play('idle');
 	};				     
+    }
+
+    render () {
+	//this.game.debug.bodyInfo(this.guards.hash[0], 16, 24);
     }
 
     createLootables(map, group) {

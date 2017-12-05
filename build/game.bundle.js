@@ -93,7 +93,8 @@ var Character = function (_Phaser$Sprite) {
 								_this.anchor.setTo(0.5);
 
 								_this.game.physics.arcade.enable(_this);
-								_this.body.setSize(16, 64, 0, 0); //Trim the collision box
+								_this.body.setSize(32, 64, 0, 0); //Trim the collision box
+								//this.body.x +=;
 
 								_this.enableBody = true;
 								return _this;
@@ -392,7 +393,7 @@ var bgMusic = void 0;
 var wallLayer = void 0;
 var elevatorPitFloorLayer = void 0;
 var scoreText = void 0;
-var moveSpeed = 150;
+var moveSpeed = 250;
 
 var Play = function (_Phaser$State) {
 	_inherits(Play, _Phaser$State);
@@ -506,7 +507,10 @@ var Play = function (_Phaser$State) {
 		value: function update() {
 			var _this2 = this;
 
-			scoreText = "Score: " + this.player.lootAmount;
+			scoreText.text = "Score: " + this.player.lootAmount;
+
+			//this.game.debug.body(this.guards.hash[0]);
+			this.game.debug.body(this.player);
 
 			this.game.physics.arcade.collide(this.player, wallLayer);
 			this.game.physics.arcade.collide(this.player, this.elevator);
@@ -568,7 +572,7 @@ var Play = function (_Phaser$State) {
 			}
 
 			if (this.cursors.left.isDown && this.player.visible) {
-				this.player.body.velocity.x = (moveSpeed - this.player.lootAmount) * -1;
+				this.player.body.velocity.x = (moveSpeed - this.player.lootAmount / 2) * -1;
 				if (!this.facingLeft) {
 					this.player.scale.x *= -1;
 					this.facingLeft = true;
@@ -588,6 +592,11 @@ var Play = function (_Phaser$State) {
 			} else {
 				this.player.animations.play('idle');
 			};
+		}
+	}, {
+		key: 'render',
+		value: function render() {
+			//this.game.debug.bodyInfo(this.guards.hash[0], 16, 24);
 		}
 	}, {
 		key: 'createLootables',
@@ -739,8 +748,8 @@ var Guard = function (_Character) {
 						_this.elevator = elevator;
 						_this.elevatorButtons = elevatorButtons;
 
-						_this.targetFloor = 3;
-						_this.patrolUp = true;
+						_this.targetFloor = 2;
+						_this.patrolUp = false;
 
 						_this.task = _this.goAndPressButton;
 
@@ -796,7 +805,10 @@ var Guard = function (_Character) {
 									} else if (this.x < floorButton.x - 5) {
 												this.moveRight();
 									} else {
-												this.elevator.call(floor);
+												if (this.elevator.currentFloor != floor) {
+															this.elevator.call(floor);
+												}
+
 												this.task = this.waitForElevator;
 									}
 						}
@@ -939,9 +951,9 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var floor1 = 173;
-var floor2 = 331;
+var floor2 = 333;
 var floor3 = 493;
-var floor4 = 654;
+var floor4 = 653;
 
 var Elevator = function (_Phaser$Group) {
 			_inherits(Elevator, _Phaser$Group);

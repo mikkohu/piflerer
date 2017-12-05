@@ -8,7 +8,8 @@ export default class Character extends Phaser.Sprite{
 	this.anchor.setTo(0.5);
 
 	this.game.physics.arcade.enable(this);
-	this.body.setSize(16,64,0,0); //Trim the collision box
+	this.body.setSize(32,64,0,0); //Trim the collision box
+	//this.body.x +=;
 
 	this.enableBody = true;
     }

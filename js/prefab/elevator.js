@@ -1,8 +1,8 @@
 import * as tilemap from '../tilemap'
 const floor1 = 173;
-const floor2 = 331;
+const floor2 = 333;
 const floor3 = 493;
-const floor4 = 654;
+const floor4 = 653;
 export default class Elevator extends Phaser.Group{
     constructor({game, floor, map}) {
 	super(game);

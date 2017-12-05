@@ -413,8 +413,8 @@
                  "type":"guard",
                  "visible":true,
                  "width":0,
-                 "x":160,
-                 "y":480
+                 "x":192,
+                 "y":640
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -555,7 +555,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":55,
+ "nextobjectid":56,
  "orientation":"orthogonal",
  "properties":
     {
