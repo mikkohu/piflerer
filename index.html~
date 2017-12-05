@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="//cdn.jsdelivr.net/phaser/2.6.2/phaser.min.js"></script>
+  </head>
+  <body>
+    <script src="build/game.bundle.js"></script>
+  </body>
+</html>

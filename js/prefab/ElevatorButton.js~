@@ -1,0 +1,5 @@
+export default class Player extends Phaser.Sprite{
+    consturctor({game, x, y, asset, floor}){
+	super(game,x,y,asset)
+    }
+}

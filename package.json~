@@ -1,0 +1,16 @@
+{
+  "name": "ludumdare",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "http-server": "^0.10.0",
+    "phaser": "^2.6.2",
+    "webpack": "^3.9.1"
+  }
+}

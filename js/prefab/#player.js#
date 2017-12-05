@@ -1,0 +1,12 @@
+import Character from './character';
+
+export default class Player extends Character {
+    constructor({game, x, y, asset, frame}) {
+	super(game,x,y,asset,frame);
+
+	this.lootAmount = 0;	this.visible = true;
+	this.animations.add('walk', ['walk001.png', 'walk002.png', 'walk003.png', 'walk004.png', 'walk005.png'], 15);
+	this.animations.add('idle', ['idle001.png', 'idle002.png', 'idle003.png', 'idle004.png', 'idle005.png', 'idle006.png'], 10);
+	
+    }
+}

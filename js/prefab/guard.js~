@@ -1,0 +1,9 @@
+import Character from './character';
+export default class guard extends Character{
+    constructor({game,x,y,asset,frame}) {
+	super(game,x,y,asset,frame);
+
+	this.animations.add('walk', ['guardW001.png', 'guardW002.png', 'guardW003.png', 'guardW004.png', 'guardW005.png'])
+	this.animations.add('idle', ['guardI001.png', 'guardI002.png', 'guardI003.png', 'guardI004.png', 'guardI005.png', 'guardI006.png'])
+    }
+}

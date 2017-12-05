@@ -1,0 +1,13 @@
+export default class GameOver extends Phaser.state {
+    create() {
+	this.game.add.image('gameOver');
+
+   	this.spacebar = this.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+    }
+
+    update() {
+	if(this.spacebar.isDown) {
+	    this.state.start('Play');
+	}
+    }
+}

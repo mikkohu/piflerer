@@ -1,0 +1,7 @@
+import Character from './prefab/character';
+
+
+export let isInElevator = (character) => {
+    return 570 < character.x && character.x < 640;
+}
+
