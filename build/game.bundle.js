@@ -510,7 +510,7 @@ var Play = function (_Phaser$State) {
 			scoreText.text = "Score: " + this.player.lootAmount;
 
 			//this.game.debug.body(this.guards.hash[0]);
-			this.game.debug.body(this.player);
+			//this.game.debug.body(this.player);
 
 			this.game.physics.arcade.collide(this.player, wallLayer);
 			this.game.physics.arcade.collide(this.player, this.elevator);
