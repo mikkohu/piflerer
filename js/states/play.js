@@ -119,7 +119,7 @@ export default class Play extends Phaser.State {
 
 	
 	//this.game.debug.body(this.guards.hash[0]);
-	this.game.debug.body(this.player);
+	//this.game.debug.body(this.player);
 	
 	this.game.physics.arcade.collide(this.player, wallLayer);
 	this.game.physics.arcade.collide(this.player, this.elevator);
